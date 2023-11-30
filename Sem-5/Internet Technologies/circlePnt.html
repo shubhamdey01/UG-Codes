@@ -1,0 +1,33 @@
+<!-- radius and center of circle given by user then find if a point lies inside the circle or not -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Point inside/outside Circle</title>
+        <script>
+            function check() {
+                var cx = parseInt(document.getElementById("cx").value);
+                var cy = parseInt(document.getElementById("cy").value);
+                var r = parseInt(document.getElementById("r").value);
+                var px = parseInt(document.getElementById("px").value);
+                var py = parseInt(document.getElementById("py").value);
+
+                var d = Math.sqrt(Math.pow((cx-px), 2) + Math.pow((cy-py), 2));
+                if(d <= r)
+                    document.getElementById("out").innerHTML = "Point lies INSIDE the Circle";
+                else
+                    document.getElementById("out").innerHTML = "Point lies OUTSIDE the Circle";
+            }
+        </script>
+    </head>
+    <body>
+        Center x : <input type="text" id="cx"><br><br>
+        Center y : <input type="text" id="cy"><br><br>
+        Radius : <input type="text" id="r"><br><br>
+        Point x : <input type="text" id="px"><br><br>
+        Point x : <input type="text" id="py"><br><br>
+        <input type="submit" id="sub" value="Check" onclick="check()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

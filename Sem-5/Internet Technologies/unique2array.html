@@ -1,0 +1,31 @@
+<!-- count and show  unique element in two array -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Unique elements in 2 arrays</title>
+        <script>
+            function find() {
+                var ar1 = document.getElementById("in1").value.split(",").map(Number);
+                var ar2 = document.getElementById("in2").value.split(",").map(Number);
+                var ar3 = [];
+
+                for(let i=0; i<ar1.length; i++)
+                    if(!ar2.includes(ar1[i]))
+                        ar3.push(ar1[i]);
+                for(let i=0; i<ar2.length; i++)
+                    if(!ar1.includes(ar2[i]))
+                        ar3.push(ar2[i]);
+
+            document.getElementById("out").innerHTML = String("No. of common elements = "+ar3.length+"<br>"+ar3);
+            }
+        </script>
+    </head>
+    <body>
+        Array-1 separated by (,) : <input type="text" id="in1"><br><br>
+        Array-2 separated by (,) : <input type="text" id="in2"><br><br>
+        <input type="submit" id="sub" value="Find" onclick="find()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

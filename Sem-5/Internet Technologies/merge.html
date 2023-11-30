@@ -1,0 +1,72 @@
+<!-- 16. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. 
+    Sorting must be done using Merge sort, use JavaScript for sorting. -->
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Program 16</title>
+
+        <script type="text/javascript">
+            function sort() {
+                ar = document.getElementById("in").value.split(",").map(Number);
+                mergeSort(ar, 0, ar.length-1);
+                document.getElementById("out").innerHTML = String("Sorted Array : " + ar);
+            }
+            function mergeSort(ar, a, b) {
+                if (a < b) {
+                    var m = a + parseInt((b-a)/2);
+                    mergeSort(ar, a, m);
+                    mergeSort(ar, m+1, b);
+                    merge(ar, a, m, b);
+                }
+            }
+            function merge(ar, a, m, b) {
+                var n1 = m-a+1;
+                var n2 = b-m;
+                var L = new Array(n1);
+                var R = new Array(n2);
+
+                for(let i=0; i<n1; i++) {
+                    L[i] = ar[a+i];
+                }
+                for(let j=0; j<n2; j++) {
+                    R[j] = ar[m+1+j];
+                }
+
+                var i = 0;
+                var j = 0;
+                var k = a;
+
+                while(i<n1 && j<n2) {
+                    if(L[i] <= R[j]) {
+                        ar[k] = L[i];
+                        i++;
+                    }
+                    else {
+                        ar[k] = R[j];
+                        j++;
+                    }
+                    k++;
+                }
+                while(i<n1) {
+                    ar[k] = L[i];
+                    i++;
+                    k++;
+                }
+                while(j<n2) {
+                    ar[k] = R[j];
+                    j++;
+                    k++;
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        Enter numbers separated by (,) : 
+        <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Sort" onclick="sort()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

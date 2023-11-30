@@ -1,0 +1,25 @@
+<!-- 14. Write a JavaScript program to change the characters (lower case) in a string where a turns into z, 
+    b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a. -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 14</title>
+        <script type="text/javascript">
+            function convert() {
+                var str = document.getElementById("in").value.split("");
+                for(let i in str) {
+                    var x = 25 - (str[i].charCodeAt(0) - 97) + 97 ;
+                    str[i] = String.fromCharCode(x);
+                }
+                document.getElementById("out").innerHTML = str.join("");
+            }
+        </script>
+    </head>
+    <body>
+        Enter a string : <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Convert" onclick="convert()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

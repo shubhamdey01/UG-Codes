@@ -1,0 +1,92 @@
+<!-- 1. Enter date of birth of the user and display his age and current date. -->
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Program 1</title>
+        <script type="text/javascript">
+            function ageCalc() {
+                var input = document.getElementById("dob").value;
+                var dob = new Date(input);
+                var now = new Date();
+
+                if(input==null || input=='') {
+                    document.getElementById("mess").innerHTML = "Choose a date please!!";
+                    document.getElementById("pid").innerHTML = "";
+                    return false;
+                }
+
+                var dobYear = dob.getYear();
+                var dobMonth = dob.getMonth();
+                var dobDate = dob.getDate();
+                var curYear = now.getYear();
+                var curMonth = now.getMonth();
+                var curDate = now.getDate();
+
+                var age = {};
+                var ageS = "";
+
+                var yearAge = curYear - dobYear;
+                if(curMonth >= dobMonth) {
+                    var monthAge = curMonth - dobMonth;
+                }
+                else {
+                    yearAge--;
+                    var monthAge = 12 + curMonth - dobMonth;
+                }
+                if(curDate >= dobDate) {
+                    var dateAge = curDate - dobDate;
+                }
+                else {
+                    monthAge--;
+                    var dateAge = 31 + curDate - dobDate;
+                }
+                if(monthAge < 0) {
+                    monthAge = 11;
+                    yearAge--;
+                }
+
+                age = {years:yearAge, months:monthAge, days:dateAge};
+                if((age.years > 0)&&(age.months > 0)&&(age.days > 0)) {
+                    ageS = age.years + " years, " + age.months + " months, " + age.days + " days old";
+                }
+                else if((age.years==0)&&(age.months==0)&&(age.days>0)) {
+                    ageS = age.days + " days old";
+                }
+                else if((age.years>0)&&(age.months==0)&&(age.days==0)) {
+                    ageS = age.years + " years old";
+                }
+                else if((age.years>0)&&(age.months>0)&&(age.days==0)) {
+                    ageS = age.years + " years and " + age.months + " months old";
+                }
+                else if((age.years==0)&&(age.months>0)&&(age.days>0)) {
+                    ageS = age.months + " months and " + age.days + " days old";
+                }
+                else if((age.years>0)&&(age.months==0)&&(age.days>0)) {
+                    ageS = age.years + " years and " + age.days + " days old";
+                }
+                else if((age.years==0)&&(age.months>0)&&(age.days==0)) {
+                    ageS = age.months + " months old";
+                }
+                else {
+                    ageS = "Welcome to Earth!!!";
+                }
+
+                var str = "Current date : "+curDate+"/"+curMonth+1+"/"+now.getFullYear()+"<br> Age : ";
+                document.getElementById("mess").innerHTML = "";
+                return document.getElementById("pid").innerHTML = str+ageS;
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+            <h2 style="color:blue">Calculate Age from Date of Birth<br><br></h2>
+            <b>Enter DOB : 
+            <input type="date" id="dob" name="dob"></b><br><br>
+            <span id="mess" style="color: red;"></span><br><br>
+            <input type="submit" id="sub" name="sub" value="Calculate Age" style="font-weight: bolder;" onclick="ageCalc()"><br><br>
+            <p id="pid"></p>
+        </center>
+    </body>
+</html>

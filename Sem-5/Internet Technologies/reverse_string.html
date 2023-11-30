@@ -1,0 +1,26 @@
+<!-- 8. Reverse a given string -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 8</title>
+        <script type="text/javascript">
+            function reverse() {
+                var str = document.getElementById("in").value.split("");
+                n = str.length;
+                for (let i=0; i<n/2; i++) {
+                    let temp = str[i];
+                    str[i] = str[n-i];
+                    str[n-i] = temp;
+                }
+                document.getElementById("pid").innerText = str.join("");
+            }
+        </script>
+    </head>
+    <body>
+        Enter a string : <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Reverse" onclick="reverse()"><br><br>
+        <p id="pid"></p>
+    </body>
+</html>

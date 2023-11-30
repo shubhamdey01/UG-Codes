@@ -1,0 +1,38 @@
+<!-- 10. Write a JavaScript program to find the maximum integer n such that 1 + 2 + ... + n <= a given integer. -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 10</title>
+        <script type="text/javascript">
+            function maxFind() {
+                var a = parseInt(document.getElementById("in").value);
+                var sum = 0;
+                var i = 1;
+                while(sum <= a) {
+                    sum += i;
+                    if(sum > a)
+                        break;
+                    i++;
+                }
+                i--;
+                var str = "";
+                if(i == 1)
+                    str = "1 <= " + a;
+                else if(i == 2)
+                    str = "1 + 2 <= " + a;
+                else if(i == 3)
+                    str = "1 + 2 + 3 <= " + a;
+                else
+                    str = "1 + 2 + ... + " + i + " <= " + a;
+                document.getElementById("out").innerHTML =  str;
+            }
+        </script>
+    </head>
+    <body>
+        Enter a : <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Find" onclick="maxFind()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

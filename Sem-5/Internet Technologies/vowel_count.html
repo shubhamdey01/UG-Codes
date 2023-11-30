@@ -1,0 +1,37 @@
+<!-- 5. Count vowels and display it on the webpage using JS. -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 5</title>
+        <script type="text/javascript">
+            function count() {
+                var ar = document.getElementById("in").value;
+                var cnt = [0,0,0,0,0];
+                for(let i=0; i<ar.length; i++) {
+                    if(ar[i]==="a" || ar[i]==="A")
+                        cnt[0]++;
+                    else if(ar[i]==="e" || ar[i]==="E")
+                        cnt[1]++;
+                    else if(ar[i]==="i" || ar[i]==="I")
+                        cnt[2]++;
+                    else if(ar[i]==="o" || ar[i]==="O")
+                        cnt[3]++;
+                    else if(ar[i]==="u" || ar[i]==="U")
+                        cnt[4]++;
+                    else
+                        continue;
+                }
+                var str = "A = "+cnt[0]+"<br>E = "+cnt[1]+"<br>I = "+cnt[2]+"<br>O = "+cnt[3]+"<br>U = "+cnt[4];
+                document.getElementById("out").innerHTML = str;
+            }
+        </script>
+    </head>
+    <body>
+        Enter String : 
+        <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Count" onclick="count()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!-- addition of same index array member of two different/same sized array -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>2 array addition</title>
+        <script>
+            function add() {
+                var ar1 = document.getElementById("in1").value.split(",").map(Number);
+                var ar2 = document.getElementById("in2").value.split(",").map(Number);
+                var res = document.getElementById("out");
+                res.innerHTML = String("Array 1 = " + ar1 + "<br>");
+                res.innerHTML += String("Array 2 = " + ar2 + "<br>");
+
+                if(ar1.length <= ar2.length) {
+                    for(let i=0; i<ar1.length; i++) {
+                        ar2[i] += ar1[i];
+                    }
+                    res.innerHTML += String("Adding = " + ar2);
+                }
+                else {
+                    for(let i=0; i<ar2.length; i++) {
+                        ar1[i] += ar2[i];
+                    }
+                    res.innerHTML += String("Adding = " + ar1);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Array-1 separated by (,) : <input type="text" id="in1"><br><br>
+        Array-2 separated by (,) : <input type="text" id="in2"><br><br>
+        <input type="submit" id="sub" value="Add" onclick="add()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

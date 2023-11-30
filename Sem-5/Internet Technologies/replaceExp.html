@@ -1,0 +1,41 @@
+<!-- 9. Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z \
+    with one of the four signs +, -, * or / to obtain a correct expression. -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 9</title>
+        <script type="text/JavaScript">
+            function check() {
+                var x = parseInt(document.getElementById('x').value);
+                var y = parseInt(document.getElementById('y').value);
+                var z = parseInt(document.getElementById('z').value);
+                var result = document.getElementById("out");
+                result.style = 'color:green';
+
+                if(x+y == z)
+                    result.innerHTML = x+' + '+y+' = '+z;
+                else if(x-y == z)
+                    result.innerHTML = x+' - '+y+' = '+z;
+                else if(x*y == z)
+                    result.innerHTML = x+' * '+y+' = '+z;
+                else if(x/y == z)
+                    result.innerHTML = x+' / '+y+' = '+z;
+                else {
+                    result.style = 'color:red';
+                    result.innerHTML = "Can't replace $ in x $ y = z";
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        Enter X : <input type="text" id="x"><br><br>
+        Enter Y : <input type="text" id="y"><br><br>
+        Enter Z : <input type="text" id="z"><br><br>
+        <input type="submit" id="sub" value="Check" onclick="check()"><br><br>
+        <p id="out"></p>
+
+    </body>
+</html>

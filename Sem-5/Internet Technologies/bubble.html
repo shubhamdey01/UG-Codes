@@ -1,0 +1,34 @@
+<!-- 2. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. 
+    Sorting must be done using bubble sort, use JavaScript for sorting. -->
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Program 2</title>
+        <script type="text/javascript">
+            function sort() {
+                var ar = document.getElementById("in").value.split(",").map(Number);
+                bubbleSort(ar, ar.length);
+                document.getElementById("out").innerHTML = String("Sorted Array : "+ar);
+            }
+            function bubbleSort(ar, n) {
+                for(let i=0; i<n; i++) {
+                    for(let j=0; j<n-i-1; j++) {
+                        if(ar[j] > ar[j+1]) {
+                            let temp = ar[j];
+                            ar[j] = ar[j+1];
+                            ar[j+1] = temp;
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter numbers separated by (,) : 
+        <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Sort" onclick="sort()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

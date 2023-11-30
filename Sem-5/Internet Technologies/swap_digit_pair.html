@@ -1,0 +1,26 @@
+<!-- 6. Write a JavaScript program to swap pairs of adjacent digits of a given integer of even length -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <script type="text/javascript">
+            function swap() {
+                var num = document.getElementById("in").value.split('');
+                for(let i=0; i<num.length; i+=2) {
+                    let temp = num[i];
+                    num[i] = num[i+1];
+                    num[i+1] = temp;
+                }
+                document.getElementById("out").innerHTML = num.join('');
+            }
+        </script>
+    </head>
+    <body>
+        Enter the Number : 
+        <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Swap" onclick="swap()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

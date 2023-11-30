@@ -1,0 +1,58 @@
+<!-- 17. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. 
+    Sorting must be done using Heap sort, use JavaScrip for sorting. -->
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Program 17</title>
+
+        <script type="text/javascript">
+            function sort() {
+                ar = document.getElementById("in").value.split(",").map(Number);
+                heapSort(ar);
+                document.getElementById("out").innerHTML = String("Sorted Array : " + ar);
+            }
+            function heapSort(ar)
+            {
+                var n = ar.length;
+                for (let i=Math.floor(n/2)-1; i>=0; i--)
+                    heapify(ar, n, i);
+
+                for (var i=n-1; i>0; i--) {
+                    var temp = ar[0];
+                    ar[0] = ar[i];
+                    ar[i] = temp;
+                    heapify(ar, i, 0);
+                }
+            }
+            function heapify(ar, n, i)
+            {
+                var max = i;
+                var l = 2 * i + 1;
+                var r = 2 * i + 2;
+
+                if (l<n && ar[l]>ar[max])
+                    max = l;
+
+                if (r<n && ar[r]>ar[max])
+                    max = r;
+
+                if (max != i) {
+                    var swap = ar[i];
+                    ar[i] = ar[max];
+                    ar[max] = swap;
+
+                    heapify(ar, n, max);
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        Enter numbers separated by (,) : 
+        <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Sort" onclick="sort()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

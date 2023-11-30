@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<style>
+		body{
+			font-family: cursive;
+			background: skyblue;
+			font-size: 20px;
+		}
+		input[type=text]{
+			border: none;
+			outline: none;
+			height: 30px;
+			font-size: 20px;
+			background: skyblue;
+			border-bottom: 2px solid blue;
+		}
+		h4{
+			color:red;
+			padding-left: 400px;
+			font-size: 25px;
+		}
+		label{
+			color: blue;
+		}
+		input[type="submit"]{
+			outline: none;
+			border: none;
+			background: rgb(0, 255, 100);
+			font-size: 20px;
+			font-weight: bolder;
+			padding : 7px 5px;
+			border-radius: 10px;
+			transition: 0.8s;
+		}
+		input[type="submit"]:hover{
+			box-shadow: 0px 10px 20px blue,0px -10px 20px blue;
+		}
+		button{
+			outline: none;
+			border: none;
+			background: rgb(0, 255, 100);
+			font-size: 20px;
+			font-weight: bolder;
+			padding : 7px 5px;
+			border-radius: 10px;
+			transition: 0.8s;
+		}
+		button:hover{
+			box-shadow: 0px 10px 20px blue,0px -10px 20px blue;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+	<script src="index.js"></script>
+
+	<title>Insert New MCQ in the Database</title>
+</head>
+
+<body>
+	<h4>Insert New MCQ in the Database</h4>
+
+	<label for="fname">Enter Question:</label>
+	<input type="text" id="qun" name="qun" required><br><br>
+	<label >1'st Option:</label>
+	<input type="text" id="op1" name="op1" required><br><br>
+	<label for="lname">2'st Option:</label>
+	<input type="text" id="op2" name="op2" required><br><br>
+	<label for="lname">3'rd Option:</label>
+	<input type="text" id="op3" name="op3" required><br><br>
+
+	<label for="lname">Correct Option:</label><br>
+	<input type = "radio" class="ops" id = "rop1" name="ops" value="1"><span>option 1</span> <br>
+	<input type = "radio" class="ops" id = "rop2" name="ops" value="2"><span>option 2</span> <br>
+	<input type = "radio" class="ops" id = "rop3" name="ops" value="3"><span>option 3</span> <br>
+	<br>
+	<input type="submit" id="sub" value="Submit">
+
+	<button onclick=location=URL>load more questions</button>
+
+	<br><br>
+	click <a href="solve.html">here</a> to solve questions
+</body>
+
+</html>

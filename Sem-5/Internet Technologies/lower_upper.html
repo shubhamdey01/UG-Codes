@@ -1,0 +1,30 @@
+<!-- 12. In a given string change lower case letters to upper case and upper-case ones to lower-case one -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 12</title>
+        <script type="text/javascript">
+            function convert() {
+                var str = document.getElementById("in").value.split("");
+                for(let i in str) {
+                    if(str[i] === str[i].toLowerCase()) {
+                        str[i] = str[i].toUpperCase();
+                        continue;
+                    }
+                    if(str[i] === str[i].toUpperCase()) {
+                        str[i] = str[i].toLowerCase();
+                        continue;
+                    }
+                }
+                document.getElementById("out").innerHTML = str.join("");
+            }
+        </script>
+    </head>
+    <body>
+        Enter a string : <input type="text" id="in"><br><br>
+        <input type="submit" id="sub" value="Convert" onclick="convert()"><br><br>
+        <p id="out"></p>
+    </body>
+</html>

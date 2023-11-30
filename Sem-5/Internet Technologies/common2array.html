@@ -1,0 +1,42 @@
+<!-- 11. Write a JavaScript program to find the number of elements which presents in both of the given arrays. -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Program 11</title>
+        <script type="text/javascript">
+            function intersect() {
+                var ar1 = document.getElementById("in1").value.split(",").map(Number);
+                var ar2 = document.getElementById("in2").value.split(",").map(Number);
+
+                var n1=0;
+                for(let i=0; i<ar1.length; i++) {
+                    for(let j=0; j<ar2.length; j++) {
+                        if(ar1[i] == ar2[j]) {
+                            n1++;
+                        }
+                    }
+                }
+
+                const setA = new Set(ar1);
+                const setB = new Set(ar2);
+                var n2 = 0;
+                for(let i of setB) {
+                    if(setA.has(i)) {
+                        n2++;
+                    }
+                }
+
+                document.getElementById("out").innerHTML = "No. of elements present in both arrays = " + n1 + "<br>";
+                document.getElementById("out").innerHTML += "No. of common elements = " + n2;
+            }
+        </script>
+    </head>
+    <body>
+        Enter Array-1 separated by (,) : <input type="text" id="in1"><br><br>
+        Enter Array-2 separated by (,) : <input type="text" id="in2"><br><br>
+        <input type="submit" id="sub" value="Find" onclick="intersect()"><br><br>
+        <p id="out"></p>        
+    </body>
+</html>
